@@ -41,10 +41,10 @@ export const News = ({ storyId }) => {
     return story && story.url ? (
         <>
             <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea href={story.url}>
                     <CardMedia
                         className={classes.media}
-                        image="/static/images/cards/contemplative-reptile.jpg"
+                        image={story.img}
                         title="Contemplative Reptile"
                     />
                     <CardContent>
@@ -54,15 +54,15 @@ export const News = ({ storyId }) => {
                         <Typography variant="body2" color="textSecondary" component="p">
                             {story.by}
                         </Typography>
-                        <Typography variant="body5" color="textSecondary" component="p">
+                        {/* <Typography variant="body5" color="textSecondary" component="p">
                             {story.time}
-                        </Typography>
+                        </Typography> */}
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="primary">
-                        Share
-                    </Button>
+                    {/* <Button size="small" color="primary" href={story.url}>
+                        Link
+                    </Button> */}
                 </CardActions>
             </Card>
         </>
