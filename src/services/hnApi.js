@@ -9,11 +9,11 @@ export const getStory = async (storyId) => {
     .get(`${aCertainStoryUrl + storyId}.json`)
     .then(({ data }) => data)
 
-    return result
+    return result;
 }
 
 export const getStoryIds = async () => {
     const result = await axios.get(topStoriesURL).then(({data}) => data);
-    
-    return result;
+
+    return result.slice(0, 5);
 };
