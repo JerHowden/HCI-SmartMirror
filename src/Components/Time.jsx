@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Commute extends Component {
+export default class Time extends Component {
 
     constructor(props) {
         super(props)
@@ -13,7 +13,7 @@ export default class Commute extends Component {
     render() {
         return (
             <div>
-                Commute
+                Time
 			</div>
         )
     }
