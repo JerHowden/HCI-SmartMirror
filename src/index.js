@@ -6,5 +6,4 @@ import * as serviceWorker from './serviceWorker';
 
 render(<App />, document.getElementById('root'));
 
-
 serviceWorker.register();
