@@ -147,7 +147,7 @@ class VideoInput extends Component {
                     alignItems: 'center'
                 }}
             >
-                <p>Camera: {camera}</p>
+            
                 <div
                     style={{
                         width: WIDTH,
@@ -157,7 +157,9 @@ class VideoInput extends Component {
                     <div style={{ position: 'relative', width: WIDTH }}>
                         {!!videoConstraints ? (
                             <div style={{ position: 'absolute' }}>
-                                <Webcam
+                                
+                                <Webcam 
+                                    id='Webcam'
                                     audio={false}
                                     width={WIDTH}
                                     height={HEIGHT}
