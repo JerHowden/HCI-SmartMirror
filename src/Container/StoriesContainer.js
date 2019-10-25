@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getStoryIds } from '../services/hnApi';
 import { News } from '../Components/News';
-import { carousel } '../Components/Carousel'
+import { carousel } from '../Components/Carousel';
 
 export const StoriesContainer = () => {
     const [storyIds, setStoryIds] = useState([]);

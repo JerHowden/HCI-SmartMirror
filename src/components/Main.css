@@ -1,8 +1,12 @@
 #Webcam {
     transform: scale(-1, 1); /* This is so it's actually mirrored and not video */
+    position: relative;
+    top: 0;
 }
 
 #morningText{
     text-align: center;
-    font-size: 10em;
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
 }

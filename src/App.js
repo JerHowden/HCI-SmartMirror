@@ -2,11 +2,25 @@ import React from 'react'
 import './App.css'
 
 import Main from './Components/Main'
+import { Route, Router } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+
+import ImageInput from './Components/views/ImageInput'; //to get descriptors; not used in interface
+
+import { StoriesContainer } from './Container/StoriesContainer';
+import Carousel from './Components/Carousel';
 
 function App() {
 	return (
 		<div className="App">
-			<Main/>
+			<Router history={createHistory()}>
+				<div className="route">
+					<Route exact path="/" component={props => <Main {...props} />} /> 
+					<Route exact path="/photo" component={props => <ImageInput {...props} />} />
+					<Route exact path="/news" component={props => <StoriesContainer {...props} />} />
+					<Route exact path="/carousel" component={props => <Carousel {...props} />} />
+				</div>
+			</Router> 
 		</div>
 	);
 }
