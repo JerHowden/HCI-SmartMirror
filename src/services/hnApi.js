@@ -14,6 +14,6 @@ export const getStory = async (storyId) => {
 
 export const getStoryIds = async () => {
     const result = await axios.get(topStoriesURL).then(({data}) => data);
-
-    return result.slice(0, 5);
+    console.log(result.slice(0,10));
+    return result.slice(0,5);
 };

@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { Route, Router } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
-import ImageInput from './views/ImageInput'; //to get descriptors
-import VideoInput from './views/VideoInput';
+import ImageInput from './views/ImageInput'; //to get descriptors; not used in interface
+import VideoInput from './views/VideoInput'; // used as mirror overlay with facial recognition through face-api.js
 
 import './Main.css';
-// import './News.jsx';
+import { StoriesContainer } from '../Container/StoriesContainer';
+import carousel from './Carousel';
 
 export default class Main extends Component {
     constructor(props) {
@@ -25,7 +26,10 @@ export default class Main extends Component {
                     <div className="route">
                         <Route exact path="/" component={VideoInput} /> 
                         <Route exact path="/photo" component={ImageInput} />
+                        <Route exact path="/news" component={StoriesContainer} />
+                        <Route exact path="/carousel" component={carousel} />
                     </div>
+                    
                 </Router> 
             </div>
         );

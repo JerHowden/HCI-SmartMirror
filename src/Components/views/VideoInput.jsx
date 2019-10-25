@@ -84,55 +84,26 @@ class VideoInput extends Component {
     render() {
         const { detections, match, facingMode } = this.state;
         let videoConstraints = null;
-        let camera = '';
         if (!!facingMode) {
             videoConstraints = {
                 width: WIDTH,
                 height: HEIGHT,
                 facingMode: facingMode
             };
-            if (facingMode === 'user') {
-                camera = 'Front';
-            } else {
-                camera = 'Back';
-            }
         }
 
         let drawBox = null;
         if (!!detections) {
             drawBox = detections.map((detection, i) => {
-                let _H = detection.box.height;
-                let _W = detection.box.width;
-                let _X = detection.box._x;
-                let _Y = detection.box._y;
+                // let _H = detection.box.height;
+                // let _W = detection.box.width;
+                // let _X = detection.box._x;
+                // let _Y = detection.box._y;
                 return (
                     <div key={i}>
-                        <div
-                            style={{
-                                position: 'absolute',
-                                border: 'solid',
-                                borderColor: 'blue',
-                                height: _H,
-                                width: _W,
-                                transform: `translate(${_X}px,${_Y}px)`
-                            }}
-                        >
                             {!!match && !!match[i] ? (
-                                <p
-                                    style={{
-                                        backgroundColor: 'blue',
-                                        border: 'solid',
-                                        borderColor: 'blue',
-                                        width: _W,
-                                        marginTop: 0,
-                                        color: '#fff',
-                                        transform: `translate(-3px,${_H}px)`
-                                    }}
-                                >
-                                    {match[i]._label}
-                                </p>
-                            ) : null}
-                        </div>
+                                <p id='morningText'>Good Morning, {match[i]._label}</p>
+                                ): null} 
                     </div>
                 );
             });
@@ -159,6 +130,7 @@ class VideoInput extends Component {
                             <div style={{ position: 'absolute' }}>
                                 
                                 <Webcam 
+                                    
                                     id='Webcam'
                                     audio={false}
                                     width={WIDTH}

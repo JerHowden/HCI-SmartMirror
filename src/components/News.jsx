@@ -1,4 +1,5 @@
-import React, {useState, useEffect, Component } from 'react';
+import React, {useState, useEffect , Component} from 'react';
+import { withRouter } from 'react-router-dom';
 import { getStory } from '../services/hnApi'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,10 +10,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 //Carousel
-import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
-import { Slide } from 'material-auto-rotating-carousel';
-const { red, blue, green } = require('@material-ui/core/colors');
-const Button = require('@material-ui/core/Button').default;
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import carousel from './Carousel';
+
+// import Carousel from 'react-responsive-carousel';
+// var Carousel = require('react-responsive-carousel').Carousel;
 
 const useStyles = makeStyles({
     card: {
@@ -25,50 +28,40 @@ const useStyles = makeStyles({
 
 export const News = ({ storyId }) => {
     const [story, setStory] = useState({});
-    let [open, setOpen] = useState(false)
 
     useEffect(() => {
         getStory(storyId).then(data => data && data.url && setStory(data));
+        // eslint-disable-next-line
     }, []);
 
+    if (story.url){
+        console.log(story);
+    }
+
     const classes = useStyles();
-
+    
     return story && story.url ? (
-        // <>
-        //     <Card className={classes.card}>
-        //         <CardActionArea href={story.url}>
-        //             <CardMedia
-        //                 className={classes.media}
-        //                 image={story.img}
-        //                 title="Contemplative Reptile"
-        //             />
-        //             <CardContent>
-        //                 <Typography gutterBottom variant="h5" component="h2">
-        //                     {story.title}
-        //                 </Typography>
-        //                 <Typography variant="body2" color="textSecondary" component="p">
-        //                     {story.by}
-        //                 </Typography>
-        //             </CardContent>
-        //         </CardActionArea>
-        //     </Card>
-        // </>
+        <>  
+                <carousel />
+                <Card className={classes.card} id='News'>
+                    <CardActionArea href={story.url}>
+                        <CardMedia
+                            className={classes.media}
+                            image={story.img}
+                            title="Contemplative Reptile"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {story.title}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                {story.by}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+        </>
+     ) : null;
+}; 
 
-    <div style={{ position: 'relative', width: '100%', height: 500 }}>
-        <Button onClick={() => setOpen(true)}>Open carousel</Button>
-        <AutoRotatingCarousel
-            label='Get started'
-            open={open}
-            onClose={() => setOpen(false)}
-            onStart={() => setOpen(false)}
-            mobile
-            autoplay={false}
-            style={{ position: 'absolute' }}
-        >
-            <Slide
-
-            />
-        </AutoRotatingCarousel>
-    </div>
-    ) : null;
-};
+export default withRouter(News);
