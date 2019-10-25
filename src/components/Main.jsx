@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Router } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
+import Weather from './Weather.jsx';
 import ImageInput from './views/ImageInput'; //to get descriptors
 import VideoInput from './views/VideoInput';
 
@@ -25,6 +26,8 @@ export default class Main extends Component {
                     <div className="route">
                         <Route exact path="/" component={VideoInput} /> 
                         <Route exact path="/photo" component={ImageInput} />
+                        <Route exact path="/weather" component={Weather}/>
+
                     </div>
                 </Router> 
             </div>
