@@ -93,7 +93,7 @@ class VideoInput extends Component {
     };
 
     render() {
-        const { detections, match, facingMode } = this.state;
+        const { facingMode } = this.state;
         let videoConstraints = null;
         if (!!facingMode) {
             videoConstraints = {

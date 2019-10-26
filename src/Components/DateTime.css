@@ -1,0 +1,12 @@
+#DateTimeContainer {
+    text-align: right;
+    font-weight: 500;
+}
+
+#DateFormatted {
+    font-size: 24px;
+}
+
+#TimeFormatted {
+    font-family: 'Roboto Mono', monospace;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import VideoInput from './views/VideoInput'; // used as mirror overlay with facial recognition through face-api.js
+import DateTime from './DateTime';
 
 import './Main.css';
 import moment from 'moment';
@@ -15,14 +16,21 @@ export default class Main extends Component {
 		this.state = {
 			profile: "",
 			profiles: ['Jeremiah', 'Elias', 'Haroon', 'JP'],
-			welcomeText: "",
-			welcomeFade: true
+			fade: false,
+			welcomeFade: false,
+			welcomeText: ""
 		}
 	}
 
 	setProfile(profile) {
-		this.setState(prevState => { 
-			return { profile }
+		this.setState(prevState => {
+			if(prevState.profile !== "" && profile === "")
+				return { profile, fade: false }
+			else 
+				return { profile, welcomeFade: true }
+		}, () => {
+			if(profile)
+				this.welcome()
 		})
 	}
 
@@ -39,20 +47,26 @@ export default class Main extends Component {
 				welcomeText = "Good Evening, " + this.state.profile;
 			}
 		}
-		return(
-			!this.state.profile ? "" :
-			<Fade in={this.state.welcomeFade}>
-				<span id="welcomeText">
-					{welcomeText}
-				</span>
-			</Fade>
-		)
+		this.setState({ welcomeText }, () => {
+			setTimeout(() => {
+				this.setState({ welcomeFade: false }, () => {
+					setTimeout(() => {
+						this.setState({ fade: true })
+					}, 1000)
+				})
+			}, 3000)
+		})
 	}
 
 	render() {
 		return(
 			<div id="MainContainer">
-				{this.welcome()}
+				<Fade in={this.state.welcomeFade} timeout={{ enter: 500, exit: 500 }}>
+					<span id="welcomeText" className="widget">
+						{this.state.welcomeText}
+					</span>
+				</Fade>
+				<DateTime fade={this.state.fade} />
 				<VideoInput
 					profile={this.state.profile}
 					setProfile={this.setProfile}

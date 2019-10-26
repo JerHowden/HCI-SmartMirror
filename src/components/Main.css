@@ -1,4 +1,4 @@
-.body{
+.body {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -8,13 +8,38 @@
     top: 0;
 }
 
-#welcomeText{
-    z-index: 10;
+#welcomeText {
     font-size: 24px;
     font-weight: 700;
-    color: #111;
-    position: absolute;
-    top: 16px;
+    top: 0;
     left: 0;
     right: 0;
+}
+
+.widget {
+    position: absolute;
+    z-index: 10;
+    padding: 15px;
+    color: white;
+    text-shadow: 1px 1px 0 black;
+}
+
+.topLeft {
+    top: 0px;
+    left: 0px;
+}
+
+.topRight {
+    top: 0px;
+    right: 0px;
+}
+
+.bottomLeft {
+    bottom: 0px;
+    left: 0px;
+}
+
+.bottomRight {
+    bottom: 0px;
+    right: 0px;
 }
