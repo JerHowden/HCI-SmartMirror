@@ -20,6 +20,7 @@ class VideoInput extends Component {
             descriptors: null,
             faceMatcher: null,
             match: null,
+            goneCount: 0,
             facingMode: null
         };
     }
@@ -36,15 +37,14 @@ class VideoInput extends Component {
                 device => device.kind === 'videoinput'
             );
             if (inputDevice.length < 2) {
-                await this.setState({
+                this.setState({
                     facingMode: 'user'
-                });
+                }, () => this.startCapture());
             } else {
-                await this.setState({
+                this.setState({
                     facingMode: { exact: 'environment' }
-                });
+                }, () => this.startCapture());
             }
-            this.startCapture();
         });
     };
 
@@ -59,12 +59,12 @@ class VideoInput extends Component {
     }
 
     capture = async () => {
-        if (!!this.webcam.current) {
+        if (this.webcam.current) {
             await getFullFaceDescription(
                 this.webcam.current.getScreenshot(),
                 inputSize
             ).then(fullDesc => {
-                if (!!fullDesc) {
+                if (fullDesc) {
                     this.setState({
                         detections: fullDesc.map(fd => fd.detection),
                         descriptors: fullDesc.map(fd => fd.descriptor)
@@ -72,11 +72,22 @@ class VideoInput extends Component {
                 }
             });
 
-            if (!!this.state.descriptors && !!this.state.faceMatcher) {
+            if (this.state.descriptors && this.state.faceMatcher) {
                 let match = await this.state.descriptors.map(descriptor =>
                     this.state.faceMatcher.findBestMatch(descriptor)
                 );
-                this.setState({ match });
+                this.setState(prevState => {
+                    if(match.length === 0)
+                        return { match, goneCount: prevState.goneCount + 1 }
+                    else
+                        return { match, goneCount: 0 }
+                }, () => {
+                    // console.log("VI-State:", this.state, this.state.match[0] ? this.state.match[0]._label : "")
+                    if(this.state.match[0] && this.state.match[0]._label !== 'unknown' && this.state.match[0]._label !== this.props.profile)
+                        this.props.setProfile(this.state.match[0]._label)
+                    if(this.state.goneCount >= 10 && this.props.profile)
+                        this.props.setProfile("")
+                });
             }
         }
     };
@@ -84,58 +95,12 @@ class VideoInput extends Component {
     render() {
         const { detections, match, facingMode } = this.state;
         let videoConstraints = null;
-        let camera = '';
         if (!!facingMode) {
             videoConstraints = {
                 width: WIDTH,
                 height: HEIGHT,
                 facingMode: facingMode
             };
-            if (facingMode === 'user') {
-                camera = 'Front';
-            } else {
-                camera = 'Back';
-            }
-        }
-
-        let drawBox = null;
-        if (!!detections) {
-            drawBox = detections.map((detection, i) => {
-                let _H = detection.box.height;
-                let _W = detection.box.width;
-                let _X = detection.box._x;
-                let _Y = detection.box._y;
-                return (
-                    <div key={i}>
-                        <div
-                            style={{
-                                position: 'absolute',
-                                border: 'solid',
-                                borderColor: 'blue',
-                                height: _H,
-                                width: _W,
-                                transform: `translate(${_X}px,${_Y}px)`
-                            }}
-                        >
-                            {!!match && !!match[i] ? (
-                                <p
-                                    style={{
-                                        backgroundColor: 'blue',
-                                        border: 'solid',
-                                        borderColor: 'blue',
-                                        width: _W,
-                                        marginTop: 0,
-                                        color: '#fff',
-                                        transform: `translate(-3px,${_H}px)`
-                                    }}
-                                >
-                                    {match[i]._label}
-                                </p>
-                            ) : null}
-                        </div>
-                    </div>
-                );
-            });
         }
 
         return (
@@ -157,7 +122,6 @@ class VideoInput extends Component {
                     <div style={{ position: 'relative', width: WIDTH }}>
                         {!!videoConstraints ? (
                             <div style={{ position: 'absolute' }}>
-                                
                                 <Webcam 
                                     id='Webcam'
                                     audio={false}
@@ -169,7 +133,6 @@ class VideoInput extends Component {
                                 />
                             </div>
                         ) : null}
-                        {!!drawBox ? drawBox : null}
                     </div>
                 </div>
             </div>
