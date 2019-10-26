@@ -1,4 +1,3 @@
-// TwitterContainer.js
 import React, { Component } from 'react';
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
