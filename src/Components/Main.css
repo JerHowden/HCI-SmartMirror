@@ -1,0 +1,45 @@
+.body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#Webcam {
+    transform: scale(-1, 1); /* This is so it's actually mirrored and not video */
+    position: relative;
+    top: 0;
+}
+
+#welcomeText {
+    font-size: 24px;
+    font-weight: 700;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.widget {
+    position: absolute;
+    z-index: 10;
+    padding: 15px;
+    color: white;
+    text-shadow: 1px 1px 0 black;
+}
+
+.topLeft {
+    top: 0px;
+    left: 0px;
+}
+
+.topRight {
+    top: 0px;
+    right: 0px;
+}
+
+.bottomLeft {
+    bottom: 0px;
+    left: 0px;
+}
+
+.bottomRight {
+    bottom: 0px;
+    right: 0px;
+}
