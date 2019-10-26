@@ -1,4 +1,4 @@
-import React, {useState, useEffect , Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import { withRouter } from 'react-router-dom';
 import { getStory } from '../services/hnApi'
 
@@ -9,10 +9,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
-//Carousel
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import carousel from './Carousel';
+import Carousel from './Carousel';
 
 // import Carousel from 'react-responsive-carousel';
 // var Carousel = require('react-responsive-carousel').Carousel;
@@ -45,7 +43,7 @@ export const News = ({ storyId }) => {
     
     return story && story.url ? (
         <>  
-                <carousel />
+                <Carousel />
                 <Card className={classes.card} id='News'>
                     <CardActionArea href={story.url}>
                         <CardMedia

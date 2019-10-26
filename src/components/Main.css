@@ -1,12 +1,20 @@
+.body{
+    font-family: 'Roboto', sans-serif;
+}
+
 #Webcam {
     transform: scale(-1, 1); /* This is so it's actually mirrored and not video */
     position: relative;
     top: 0;
 }
 
-#morningText{
-    text-align: center;
-    font-size: 18px;
+#welcomeText{
+    z-index: 10;
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
     position: absolute;
-    left: 50%;
+    top: 16px;
+    left: 0;
+    right: 0;
 }
