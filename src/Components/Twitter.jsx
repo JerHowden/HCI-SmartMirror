@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TwitterTimelineEmbed } from "react-twitter-embed";
+import './Twitter.css'
 
 export default class Twitter extends Component{
 
@@ -14,8 +15,8 @@ export default class Twitter extends Component{
     render() {
         return (
             <div className="centerContent">
-                <div className="selfCenter standardWidth">
-                    <TwitterTimelineEmbed sourceType="url" url="https://twitter.com/mashable/lists/social-media" options={{ height: 1600 }} />
+                <div className="selfCenter">
+                    <TwitterTimelineEmbed sourceType="url" url="https://twitter.com/mashable/lists/social-media" options={{ height: 450 }} theme="dark" />
                 </div>
             </div>
         )
@@ -23,5 +24,3 @@ export default class Twitter extends Component{
     }
     
 }
-
-// export default Twitter;
