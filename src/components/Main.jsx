@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
+import { Route, Router } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+
+import Weather from './Weather.jsx';
+import ImageInput from './views/ImageInput'; //to get descriptors
+import VideoInput from './views/VideoInput';
+
 import VideoInput from './views/VideoInput'; // used as mirror overlay with facial recognition through face-api.js
+<<<<<<< HEAD
+>>>>>>> df8c13ee5e22b2fd3ff5d5360b6b543c560c14d3
+=======
 import DateTime from './DateTime';
+>>>>>>> 378664e4b28d0d98ba1f22593d835e3389c06161
 
 import './Main.css';
 import moment from 'moment';
@@ -58,6 +70,29 @@ export default class Main extends Component {
 		})
 	}
 
+<<<<<<< HEAD
+    render() {
+        return(
+            <div id="MainContainer">
+<<<<<<< HEAD
+                <Router history={createHistory()}>
+                    <div className="route">
+                        <Route exact path="/" component={VideoInput} /> 
+                        <Route exact path="/photo" component={ImageInput} />
+                        <Route exact path="/weather" component={Weather}/>
+
+                    </div>
+                </Router> 
+=======
+                <VideoInput
+                    profile={this.state.profile}
+                    setProfile={this.setProfile}
+                />
+>>>>>>> df8c13ee5e22b2fd3ff5d5360b6b543c560c14d3
+            </div>
+        );
+    }
+=======
 	render() {
 		return(
 			<div id="MainContainer">
@@ -74,4 +109,5 @@ export default class Main extends Component {
 			</div>
 		);
 	}
+>>>>>>> 378664e4b28d0d98ba1f22593d835e3389c06161
 };
