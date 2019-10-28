@@ -80,6 +80,12 @@ export default class Commute extends Component {
     }
 
     render() {
+        let style = {}
+        if(this.props.style && this.props.style.left === 0 && this.props.style.right === 0)
+            style = {margin: '0 auto'}
+        else if(this.props.style && this.props.style.top === 0 && this.props.style.bottom === 0)
+            style= {margin: 'auto 0'}
+
         return (
             <Fade in={this.props.fade} timeout={{ enter: 1000, exit: 500 }}>
                 <div id="CommuteContainer" className="widget" style={this.props.style}>
@@ -87,6 +93,7 @@ export default class Commute extends Component {
                         mapboxApiAccessToken={'pk.eyJ1IjoiamVyZW1pYWhob3dkZW4iLCJhIjoiY2sxdG02dHA3MDg0ajNicWZzcDlscGhjdyJ9.j2t6Mr4EpeTpm-4Uz7kszg'}
                         mapStyle='mapbox://styles/mapbox/dark-v10'
 
+                        style={style}
                         ref={(reactMap) => this.reactMap = reactMap}
                         width={200}
                         height={200}

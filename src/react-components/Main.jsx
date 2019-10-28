@@ -25,8 +25,8 @@ export default class Main extends Component {
 				tl:	{top: 0, left: 0, textAlign: 'left'},
 				t:	{top: 0, left: 0, right: 0, textAlign: 'center'},
 				tr:	{top: 0, right: 0, textAlign: 'right'},
-				l:	{top: 0, bottom: 0, left: 0, margin: 'auto 0', textAlign: 'left'}, // must have {height: fit-content} to work
-				r:	{top: 0, bottom: 0, right: 0, margin: 'auto 0', textAlign: 'right'}, // must have {height: fit-content} to work
+				l:	{top: 0, bottom: 0, left: 0, margin: 'auto 0', textAlign: 'left', height: 'fit-content'},
+				r:	{top: 0, bottom: 0, right: 0, margin: 'auto 0', textAlign: 'right', height: 'fit-content'},
 				bl:	{bottom: 0, left: 0, textAlign: 'left'},
 				b:	{bottom: 0, left: 0, right: 0, textAlign: 'center'},
 				br:	{bottom: 0, right: 0, textAlign: 'right'}
@@ -37,7 +37,7 @@ export default class Main extends Component {
 					DateTime: 'tr', // Good on all positions
 					Weather: 'r',
 					Agenda: 'bl',
-					Commute: 'br'
+					Commute: 'br' // Good on all positions
 				},
 				Elias: {
 
