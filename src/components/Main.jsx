@@ -1,18 +1,8 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-import { Route, Router } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
-
-import Weather from './Weather.jsx';
-import ImageInput from './views/ImageInput'; //to get descriptors
-import VideoInput from './views/VideoInput';
 
 import VideoInput from './views/VideoInput'; // used as mirror overlay with facial recognition through face-api.js
-<<<<<<< HEAD
->>>>>>> df8c13ee5e22b2fd3ff5d5360b6b543c560c14d3
-=======
 import DateTime from './DateTime';
->>>>>>> 378664e4b28d0d98ba1f22593d835e3389c06161
+import Commute from './Commute';
 
 import './Main.css';
 import moment from 'moment';
@@ -30,7 +20,35 @@ export default class Main extends Component {
 			profiles: ['Jeremiah', 'Elias', 'Haroon', 'JP'],
 			fade: false,
 			welcomeFade: false,
-			welcomeText: ""
+			welcomeText: "",
+			positionStyles: {
+				tl:	{top: 0, left: 0, textAlign: 'left'},
+				t:	{top: 0, left: 0, right: 0, textAlign: 'center'},
+				tr:	{top: 0, right: 0, textAlign: 'right'},
+				l:	{top: 0, bottom: 0, left: 0, margin: 'auto 0', textAlign: 'left'}, // must have {height: fit-content} to work
+				r:	{top: 0, bottom: 0, right: 0, margin: 'auto 0', textAlign: 'right'}, // must have {height: fit-content} to work
+				bl:	{bottom: 0, left: 0, textAlign: 'left'},
+				b:	{bottom: 0, left: 0, right: 0, textAlign: 'center'},
+				br:	{bottom: 0, right: 0, textAlign: 'right'}
+			}, 
+			positionProfiles: {
+				Jeremiah: {
+					News: 'tl',
+					DateTime: 'tr', // Good on all positions
+					Weather: 'r',
+					Agenda: 'bl',
+					Commute: 'br'
+				},
+				Elias: {
+
+				},
+				Haroon: {
+
+				},
+				JP: {
+
+				}
+			}
 		}
 	}
 
@@ -70,29 +88,6 @@ export default class Main extends Component {
 		})
 	}
 
-<<<<<<< HEAD
-    render() {
-        return(
-            <div id="MainContainer">
-<<<<<<< HEAD
-                <Router history={createHistory()}>
-                    <div className="route">
-                        <Route exact path="/" component={VideoInput} /> 
-                        <Route exact path="/photo" component={ImageInput} />
-                        <Route exact path="/weather" component={Weather}/>
-
-                    </div>
-                </Router> 
-=======
-                <VideoInput
-                    profile={this.state.profile}
-                    setProfile={this.setProfile}
-                />
->>>>>>> df8c13ee5e22b2fd3ff5d5360b6b543c560c14d3
-            </div>
-        );
-    }
-=======
 	render() {
 		return(
 			<div id="MainContainer">
@@ -101,7 +96,8 @@ export default class Main extends Component {
 						{this.state.welcomeText}
 					</span>
 				</Fade>
-				<DateTime fade={this.state.fade} />
+				<DateTime fade={this.state.fade} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].DateTime] : {}} />
+				<Commute fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Commute] : {}} />
 				<VideoInput
 					profile={this.state.profile}
 					setProfile={this.setProfile}
@@ -109,5 +105,4 @@ export default class Main extends Component {
 			</div>
 		);
 	}
->>>>>>> 378664e4b28d0d98ba1f22593d835e3389c06161
 };
