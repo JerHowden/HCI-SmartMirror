@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import VideoInput from './views/VideoInput'; // used as mirror overlay with facial recognition through face-api.js
 import DateTime from './DateTime';
 import Commute from './Commute';
+import Agenda from './Agenda';
+import News from './News';
 
 import './Main.css';
 import moment from 'moment';
@@ -40,7 +42,11 @@ export default class Main extends Component {
 					Commute: 'br' // Good on all positions
 				},
 				Elias: {
-
+					News: 'tl',
+					DateTime: 'b',
+					Weather: 'tr',
+					Agenda: 'br',
+					Commute: 'bl'
 				},
 				Haroon: {
 
@@ -98,6 +104,8 @@ export default class Main extends Component {
 				</Fade>
 				<DateTime fade={this.state.fade} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].DateTime] : {}} />
 				<Commute fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Commute] : {}} />
+				{/* <Agenda fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Agenda] : {}} /> */}
+				<News fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].News] : {}} />
 				<VideoInput
 					profile={this.state.profile}
 					setProfile={this.setProfile}
