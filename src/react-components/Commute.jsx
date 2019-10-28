@@ -51,7 +51,7 @@ export default class Commute extends Component {
                     "line-cap": "round"
                 },
                 "paint": {
-                    "line-color": "#88D",
+                    "line-color": "#F44",
                     "line-width": 4
                 }
             });
