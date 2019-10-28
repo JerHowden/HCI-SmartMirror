@@ -1,16 +1,16 @@
 import React from 'react'
 import './App.css'
 
-import Main from './Components/Main'
+import Main from './react-components/Main'
 import { Route, Router } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
-import ImageInput from './Components/views/ImageInput'; //to get descriptors; not used in interface
+import ImageInput from './react-components/views/ImageInput'; //to get descriptors; not used in interface
 
 import { StoriesContainer } from './Container/StoriesContainer';
-import Carousel from './Components/Carousel';
-import Twitter from './Components/Twitter';
-import Commute from './Components/Commute';
+import Carousel from './react-components/Carousel';
+import Twitter from './react-components/Twitter';
+import Commute from './react-components/Commute';
 
 function App() {
 	return (

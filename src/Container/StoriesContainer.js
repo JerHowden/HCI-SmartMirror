@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getStoryIds } from '../services/hnApi';
-import { News } from '../Components/News';
+import { News } from '../react-components/News';
 
 export const StoriesContainer = () => {
     const [storyIds, setStoryIds] = useState([]);
