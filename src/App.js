@@ -11,6 +11,7 @@ import { StoriesContainer } from './Container/StoriesContainer';
 import Carousel from './react-components/Carousel';
 import Twitter from './react-components/Twitter';
 import Commute from './react-components/Commute';
+import USNews from './react-components/USNews';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 					<Route exact path="/carousel" component={props => <Carousel {...props} />} />
 					<Route exact path="/twitter" component={props => <Twitter {...props} />} />
 					<Route exact path="/commute" component={props => <Commute {...props} />} />
+					<Route exact path="/usnews" component={props => <USNews {...props} />} />
 				</div>
 			</Router> 
 		</div>
