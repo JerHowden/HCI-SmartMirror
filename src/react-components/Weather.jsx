@@ -10,12 +10,10 @@ export default class Weather extends Component {
         this.state = {
    /*       location: {
             city: Lubock,
-            state: TX,
             lat: 33.5779,
             long: -101.8552
         }; */
-            tempature: null,
-            currentWeather: null,
+            tempF: null,
             currentIcon: null,
         }
     }
@@ -28,50 +26,81 @@ export default class Weather extends Component {
     async weatherReport(){
 
         // Dark Sky API request
-        const key = 'https://api.darksky.net/forecast/96e680c514f41caa0797d585c8532a56/33.5779,-101.8552';
-
+        const key = 'https://api.openweathermap.org/data/2.5/weather?lat=33.5&lon=-101.85&appid=324b908d425e85e9124ac7c12b5baff9&units=imperial';
         // Convert to .json
         const response = await fetch(key);
         const weather_data = response.json();
+
+        // Return .json
         console.log(weather_data);
         
-        // Return .json
+        
         this.setState({data: weather_data})
     }
+/*
+    let options = {
+        method: 'GET',
+        mode:   'cors'
+    }
 
+*/
 
 // Return image icon path
 icon(){
         let currentIcon;
         switch(this.state.data.icon){
-            case('clear-day'):
+            case('01d'):
                 currentIcon = '../WeatherImages/Sun.svg';
                 break;
-            case('clear-night'):
+            case('01n'):
                 currentIcon = '/WeaterImages/ClearN.svg';
                 break;
-            case('rain'):
+            case('10d'):
                 currentIcon = '../WeatherImages/Rain.svg';
                 break;
-            case('snow'):
+            case('10n'):
+                currentIcon = '../WeatherImages/Rain.svg';
+                break;
+            case('09d'):
+                currentIcon = '../WeatherImages/Rain.svg';
+                break;
+            case('09n'):
+                currentIcon = '../WeatherImages/Rain.svg';
+                break;
+            case('11d'):
+                currentIcon = '../WeatherImages/Rain.svg';
+                break;
+            case('11n'):
+                currentIcon = '../WeatherImages/Rain.svg';
+                break;
+            case('13d'):
                 currentIcon = '../WeatherImages/Snow.svg';
                 break;
-            case('sleet'):
+            case('13n'):
                 currentIcon = '../WeatherImages/Snow.svg';
                 break;
-            case('wind'):
-                currentIcon = '../WeatherI/Wind.svg';
-                break;
-            case('fog'):
+            case('50d'):
                 currentIcon = '../WeatherImages/Fog.svg';
                 break;
-            case('cloudy'):
+            case('50n'):
+                currentIcon = '../WeatherImages/Fog.svg';
+                break;
+            case('03d'):
                 currentIcon = '/WeatherImages/Clouds.svg';
                 break;
-            case('partly-cloudy-day'):
+            case('03n'):
                 currentIcon = '/WeatherImages/Clouds.svg';
                 break;
-            case('partly-cloudy-night'):
+            case('02d'):
+                currentIcon = '/WeatherImages/Clouds.svg';
+                break;
+            case('02n'):
+                currentIcon = '/WeatherImages/CloudN.svg';
+                break;
+            case('04d'):
+                currentIcon = '/WeatherImages/Clouds.svg';
+                break;
+            case('04n'):
                 currentIcon = '/WeatherImages/CloudN.svg';
                 break;
             default: 
@@ -80,7 +109,10 @@ icon(){
         }
     }
 
-    
+    tempature(){
+        let tempF;
+        tempF = this.state.data.temp;
+    }
 
     render() {
     
