@@ -82,7 +82,7 @@ class VideoInput extends Component {
                     else
                         return { match, goneCount: 0 }
                 }, () => {
-                    console.log("VI-State:", this.state, this.state.match[0] ? this.state.match[0]._label : "")
+                    console.log("VI-State:", this.state.match[0] ? this.state.match[0]._label : "")
                     if(this.state.match[0] && this.state.match[0]._label !== 'unknown' && this.state.match[0]._label !== this.props.profile)
                         this.props.setProfile(this.state.match[0]._label)
                     if(this.state.goneCount >= 10 && this.props.profile)

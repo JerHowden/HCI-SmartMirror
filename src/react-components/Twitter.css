@@ -1,3 +1,11 @@
 .selfCenter{
     width: 18%;
-} 
+}
+
+.timeline-Header {
+    display: none;
+}
+
+.timeline-Footer {
+    display: none;
+}

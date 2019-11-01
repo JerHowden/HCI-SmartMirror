@@ -1,12 +1,10 @@
 import React, {useState, useEffect, Component } from 'react';
 import { getStory } from '../services/hnApi'
 
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles'
+import { Fade, Card, CardMedia, CardActionArea, CardContent, Typography } from '@material-ui/core';
+
+import Twitter from './Twitter';
 
 const useStyles = makeStyles({
     card: {
@@ -17,7 +15,7 @@ const useStyles = makeStyles({
     },
 });
 
-export const News = ({ storyId }) => {
+export const HackerNews = ({ storyId }) => {
     const [story, setStory] = useState({});
 
     useEffect(() => {
@@ -48,3 +46,21 @@ export const News = ({ storyId }) => {
         </>
     ) : null;
 };
+
+export default class News extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+
+        }
+    }
+
+    render() {
+        return(
+            <Fade in={this.props.fade} timeout={{ enter: 1000, exit: 500 }}>
+                <Twitter profile={this.props.profile} style={this.props.style}/>
+            </Fade>
+        )
+    }
+}
