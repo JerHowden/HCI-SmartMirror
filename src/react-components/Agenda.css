@@ -1,0 +1,37 @@
+#AgendaContainer {
+    color: white;
+}
+
+#AgendaContainer > div {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+#AgendaContainer > div > div > div > span {
+    color: white;
+}
+
+#AgendaContainer > div > div > div > span.MuiCardHeader-title {
+    text-align: center;
+}
+
+#AgendaContainer > div > div > div > span.MuiCardHeader-subheader {
+    text-align: center;
+}
+
+.agenda-item {
+
+}
+
+.agenda-time {
+
+}
+
+.agenda-content {
+
+}
+
+.agenda-completed {
+    text-decoration: line-through;
+    color: #666
+}

@@ -104,7 +104,7 @@ export default class Main extends Component {
 				</Fade>
 				<DateTime fade={this.state.fade} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].DateTime] : {}} />
 				<Commute fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Commute] : {}} />
-				{/* <Agenda fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Agenda] : {}} /> */}
+				<Agenda fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Agenda] : {}} />
 				<News fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].News] : {}} />
 				<VideoInput
 					profile={this.state.profile}

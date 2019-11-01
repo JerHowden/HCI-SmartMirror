@@ -29,23 +29,28 @@ export default class Commute extends Component {
     }
 
     async componentWillReceiveProps(nextProps){
-        if(nextProps.profile) {
+        if(nextProps.profile && nextProps.profile !== this.props.profile) {
             const map = this.reactMap.getMap();
-            // map.on('load', () => { map.addLayer({...}) })
-            map.addLayer({
-                id: "route",
-                type: "line",
-                source: {
-                    type: "geojson",
-                    data: {
-                        type: "Feature",
-                        properties: {},
-                        geometry: {
-                            type: "LineString",
-                            coordinates: Routes[nextProps.profile].routes[0].geometry.coordinates
-                        }
+            if(map.getLayer('commute-route') && map.getSource('commute-source')) {
+                map.removeLayer('commute-route');
+                map.removeSource('commute-source');
+            }
+
+            map.addSource("commute-source", {
+                type: "geojson",
+                data: {
+                    type: "Feature",
+                    properties: {},
+                    geometry: {
+                        type: "LineString",
+                        coordinates: Routes[nextProps.profile].routes[0].geometry.coordinates
                     }
-                },
+                }
+            });
+            map.addLayer({
+                id: "commute-route",
+                source: "commute-source",
+                type: "line",
                 "layout": {
                     "line-join": "round",
                     "line-cap": "round"
@@ -70,6 +75,20 @@ export default class Commute extends Component {
                     viewport = {
                         latitude: 33.577829,
                         longitude: -101.877241,
+                        zoom: 11
+                    }
+                break;
+
+                case "JP":
+                    viewport = {
+                        
+                    }
+                break;
+
+                case "Haroon":
+                    viewport = {
+                        latitude: 33.571207,
+                        longitude: -101.879338,
                         zoom: 11
                     }
                 break;
