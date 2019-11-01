@@ -13,8 +13,7 @@ export default class Weather extends Component {
             lat: 33.5779,
             long: -101.8552
         }; */
-            temp: null,
-            currentWeather: null,
+            tempF: null,
             currentIcon: null,
         }
     }
@@ -110,7 +109,8 @@ icon(){
     }
 
     tempature(){
-
+        let tempF;
+        tempF = this.state.data.temp;
     }
 
     render() {
