@@ -68,7 +68,9 @@ export default class Commute extends Component {
 
                 case "Elias":
                     viewport = {
-
+                        latitude: 33.577829,
+                        longitude: -101.877241,
+                        zoom: 11
                     }
                 break;
 
