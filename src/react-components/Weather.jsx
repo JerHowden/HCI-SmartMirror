@@ -13,8 +13,7 @@ export default class Weather extends Component {
             lat: 33.5779,
             long: -101.8552
         }; */
-            temp: null,
-            currentWeather: null,
+            tempF: null,
             currentIcon: null,
         }
     }
@@ -28,13 +27,14 @@ export default class Weather extends Component {
 
         // Dark Sky API request
         const key = 'https://api.openweathermap.org/data/2.5/weather?lat=33.5&lon=-101.85&appid=324b908d425e85e9124ac7c12b5baff9&units=imperial';
-        // https://cors-anywhere.herokuapp.com/
         // Convert to .json
         const response = await fetch(key);
         const weather_data = response.json();
+
+        // Return .json
         console.log(weather_data);
         
-        // Return .json
+        
         this.setState({data: weather_data})
     }
 /*
@@ -110,7 +110,8 @@ icon(){
     }
 
     tempature(){
-
+        let tempF;
+        tempF = this.state.data.temp;
     }
 
     render() {
