@@ -10,7 +10,6 @@ export default class Weather extends Component {
         this.state = {
    /*       location: {
             city: Lubock,
-            state: TX,
             lat: 33.5779,
             long: -101.8552
         }; */
@@ -28,8 +27,8 @@ export default class Weather extends Component {
     async weatherReport(){
 
         // Dark Sky API request
-        const key = 'https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=33.5&lon=-101.85&appid=324b908d425e85e9124ac7c12b5baff9';
-
+        const key = 'https://api.openweathermap.org/data/2.5/weather?lat=33.5&lon=-101.85&appid=324b908d425e85e9124ac7c12b5baff9&units=imperial';
+        // https://cors-anywhere.herokuapp.com/
         // Convert to .json
         const response = await fetch(key);
         const weather_data = response.json();
@@ -110,7 +109,9 @@ icon(){
         }
     }
 
-    
+    tempature(){
+
+    }
 
     render() {
     
