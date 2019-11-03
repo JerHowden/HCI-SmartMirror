@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import USNews from './USNews'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -11,7 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-export default class USNews extends Component {
+export default class News extends Component {
 
     constructor(props) {
         super(props);
@@ -53,13 +52,6 @@ export default class USNews extends Component {
         const { headlines } = this.state
 
         return (
-            <div>
-                {/* {
-                    headlines.length ?
-                    <USNews headlines={ headlines }/> :
-                    null
-                } */}
-
                 <div>
                     {this.state.headlines.map((article, index) => {
                         return <Card href={article.url}>
@@ -85,8 +77,6 @@ export default class USNews extends Component {
                         </Card>
                     })}
                 </div>
-            </div>
-
         )
     }
 }

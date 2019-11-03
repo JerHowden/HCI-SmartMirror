@@ -7,11 +7,10 @@ import createHistory from 'history/createBrowserHistory';
 
 import ImageInput from './react-components/views/ImageInput'; //to get descriptors; not used in interface
 
-import { StoriesContainer } from './Container/StoriesContainer';
 import Carousel from './react-components/Carousel';
 import Twitter from './react-components/Twitter';
 import Commute from './react-components/Commute';
-import USNews from './react-components/USNews';
+import News from './react-components/News';
 import Weather from './react-components/Weather';
 
 function App() {
@@ -21,12 +20,11 @@ function App() {
 				<div className="route">
 					<Route exact path="/" component={props => <Main {...props} />} /> 
 					<Route exact path="/photo" component={props => <ImageInput {...props} />} />
-					<Route exact path="/news" component={props => <StoriesContainer {...props} />} />
+					<Route exact path="/news" component={props => <News {...props} />} />
 					<Route exact path="/carousel" component={props => <Carousel {...props} />} />
 					<Route exact path="/twitter" component={props => <Twitter {...props} />} />
 					<Route exact path="/weather" component={props => <Weather {...props} />} />
 					<Route exact path="/commute" component={props => <Commute {...props} />} />
-					<Route exact path="/usnews" component={props => <USNews {...props} />} />
 				</div>
 			</Router> 
 		</div>
