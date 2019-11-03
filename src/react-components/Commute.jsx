@@ -81,7 +81,9 @@ export default class Commute extends Component {
 
                 case "JP":
                     viewport = {
-                        
+                        latitude: 33.587954,
+                        longitude: -101.883270,
+                        zoom: 12
                     }
                 break;
 
@@ -89,7 +91,7 @@ export default class Commute extends Component {
                     viewport = {
                         latitude: 33.571207,
                         longitude: -101.879338,
-                        zoom: 11
+                        zoom: 12
                     }
                 break;
 

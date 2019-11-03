@@ -49,10 +49,18 @@ export default class Main extends Component {
 					Commute: 'bl'
 				},
 				Haroon: {
-
+					News: 'tl',
+					DateTime: 'tr',
+					Weather: 'r',
+					Agenda: 'br',
+					Commute: 'bl'
 				},
 				JP: {
-
+					News: 'tl',
+					DateTime: 'b',
+					Weather: 'tr',
+					Agenda: 'br',
+					Commute: 'bl'
 				}
 			}
 		}
