@@ -5,6 +5,7 @@ import DateTime from './DateTime';
 import Commute from './Commute';
 import Agenda from './Agenda';
 import News from './News';
+import Weather from './Weather';
 
 import './Main.css';
 import moment from 'moment';
@@ -114,6 +115,7 @@ export default class Main extends Component {
 				<Commute fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Commute] : {}} />
 				<Agenda fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Agenda] : {}} />
 				<News fade={this.state.fade} profile={this.state.profile} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].News] : {}} />
+				<Weather fade={this.state.fade} style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Weather] : {}} />
 				<VideoInput
 					profile={this.state.profile}
 					setProfile={this.setProfile}
