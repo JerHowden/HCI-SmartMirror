@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/HCI-SmartMirror/static/css/main.453f8825.chunk.css",
+    "main.js": "/HCI-SmartMirror/static/js/main.46217ee7.chunk.js",
+    "main.js.map": "/HCI-SmartMirror/static/js/main.46217ee7.chunk.js.map",
+    "runtime-main.js": "/HCI-SmartMirror/static/js/runtime-main.34b59305.js",
+    "runtime-main.js.map": "/HCI-SmartMirror/static/js/runtime-main.34b59305.js.map",
+    "static/css/2.1fd2b905.chunk.css": "/HCI-SmartMirror/static/css/2.1fd2b905.chunk.css",
+    "static/js/2.28bf74b2.chunk.js": "/HCI-SmartMirror/static/js/2.28bf74b2.chunk.js",
+    "static/js/2.28bf74b2.chunk.js.map": "/HCI-SmartMirror/static/js/2.28bf74b2.chunk.js.map",
+    "index.html": "/HCI-SmartMirror/index.html",
+    "precache-manifest.3e17911989f336e2fcfc07139758680c.js": "/HCI-SmartMirror/precache-manifest.3e17911989f336e2fcfc07139758680c.js",
+    "service-worker.js": "/HCI-SmartMirror/service-worker.js",
+    "static/css/2.1fd2b905.chunk.css.map": "/HCI-SmartMirror/static/css/2.1fd2b905.chunk.css.map",
+    "static/css/main.453f8825.chunk.css.map": "/HCI-SmartMirror/static/css/main.453f8825.chunk.css.map",
+    "static/media/test.JPG": "/HCI-SmartMirror/static/media/test.4e8283ad.JPG"
+  }
+}
