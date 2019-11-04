@@ -1,0 +1,16 @@
+#distance > span{
+    color: #8a8a8a;
+    text-shadow: none;
+}
+
+#duration > span {
+    color: #8a8a8a;
+    text-shadow: none;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#distance {
+    float: right;
+    font-size: 14px;
+}
