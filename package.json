@@ -10,7 +10,7 @@
     "mapbox": "^1.0.0-beta10",
     "material-auto-rotating-carousel": "^3.0.2",
     "moment": "^2.24.0",
-    "pure-react-carousel": "^1.23.0",
+    "pure-react-carousel": "^1.23.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-draggable": "^4.1.0",
