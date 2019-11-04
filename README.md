@@ -1,7 +1,5 @@
 
 ## HCI Smart Mirror Project
-
-11/3/2019
 Project By: James Fallon, Haroon Saeed, Elias Moreno, and Jeremiah Howden
 
 
