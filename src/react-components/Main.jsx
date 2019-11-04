@@ -120,65 +120,67 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div id="MainContainer">
-        <Fade in={this.state.welcomeFade} timeout={{ enter: 500, exit: 500 }}>
-          <span id="welcomeText" className="widget">
-            {this.state.welcomeText}
-          </span>
-        </Fade>
-        <DateTime
-          fade={this.state.fade}
-          style={
-            this.state.profile
-              ? this.state.positionStyles[
-                  this.state.positionProfiles[this.state.profile].DateTime
-                ]
-              : {}
-          }
-        />
-        <Commute
-          fade={this.state.fade}
-          profile={this.state.profile}
-          style={
-            this.state.profile
-              ? this.state.positionStyles[
-                  this.state.positionProfiles[this.state.profile].Commute
-                ]
-              : {}
-          }
-        />
-        <Agenda
-          fade={this.state.fade}
-          profile={this.state.profile}
-          style={
-            this.state.profile
-              ? this.state.positionStyles[
-                  this.state.positionProfiles[this.state.profile].Agenda
-                ]
-              : {}
-          }
-        />
-        <News
-          fade={this.state.fade}
-          profile={this.state.profile}
-          style={
-            this.state.profile
-              ? this.state.positionStyles[
-                  this.state.positionProfiles[this.state.profile].News
-                ]
-              : {}
-          }
-        />
-        <Weather
-          fade={this.state.fade}
-          style={
-            this.state.profile
-              ? this.state.positionStyles[
-                  this.state.positionProfiles[this.state.profile].Weather
-                ]
-              : {}
-          }
-        />
+      <div>
+        <div id="MainContainer" key={this.state.profile}>
+          <Fade in={this.state.welcomeFade} timeout={{ enter: 500, exit: 500 }}>
+            <span id="welcomeText" className="widget">
+              {this.state.welcomeText}
+            </span>
+          </Fade>
+          <DateTime
+            fade={this.state.fade}
+            style={
+              this.state.profile
+                ? this.state.positionStyles[
+                    this.state.positionProfiles[this.state.profile].DateTime
+                  ]
+                : {}
+            }
+          />
+          <Commute
+            fade={this.state.fade}
+            profile={this.state.profile}
+            style={
+              this.state.profile
+                ? this.state.positionStyles[
+                    this.state.positionProfiles[this.state.profile].Commute
+                  ]
+                : {}
+            }
+          />
+          <Agenda
+            fade={this.state.fade}
+            profile={this.state.profile}
+            style={
+              this.state.profile
+                ? this.state.positionStyles[
+                    this.state.positionProfiles[this.state.profile].Agenda
+                  ]
+                : {}
+            }
+          />
+          <News
+            fade={this.state.fade}
+            profile={this.state.profile}
+            style={
+              this.state.profile
+                ? this.state.positionStyles[
+                    this.state.positionProfiles[this.state.profile].News
+                  ]
+                : {}
+            }
+          />
+          <Weather
+            fade={this.state.fade}
+            style={
+              this.state.profile
+                ? this.state.positionStyles[
+                    this.state.positionProfiles[this.state.profile].Weather
+                  ]
+                : {}
+            }
+          />
+        </div>
         <VideoInput profile={this.state.profile} setProfile={this.setProfile} />
       </div>
     );

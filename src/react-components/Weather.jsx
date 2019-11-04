@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Fade } from '@material-ui/core';
+import Draggable from 'react-draggable'; 
 
 import './Weather.css'
 
@@ -103,14 +104,17 @@ export default class Weather extends Component {
             
             <Fade in={this.props.fade} timeout={{ enter: 1000, exit: 500 }}>
                 <div id="WeatherContainer" className="widget" style={this.props.style}>
-                    <div>
-                        {this.state.icon ? <img src={this.state.icon} width={50} height={50} /> : <div/>}
-                        {this.state.data && this.state.data.main ? 
-                            <div id="Weather-Temperature">
-                                {Math.round(this.state.data.main.temp) + " °F"}
-                            </div>
-                        : <div/>}
-                    </div>
+                    <Draggable style={{
+                        position: 'absolute'}}>
+                        <div>
+                            {this.state.icon ? <img src={this.state.icon} width={50} height={50} /> : <div/>}
+                            {this.state.data && this.state.data.main ? 
+                                <div id="Weather-Temperature">
+                                    {Math.round(this.state.data.main.temp) + " °F"}
+                                </div>
+                            : <div/>}
+                        </div>
+                    </Draggable>
                 </div>
             </Fade>
             
