@@ -41,6 +41,7 @@
 #AgendaButtons {
 	position: absolute;
 	width: fit-content;
+	float: left;
 }
 
 #AgendaButtons > button:nth-child(2) {

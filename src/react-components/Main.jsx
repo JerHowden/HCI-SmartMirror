@@ -122,10 +122,10 @@ export default class Main extends Component {
 		return (
 			<div>
 				<Commute
-						fade={this.state.fade}
-						profile={this.state.profile}
-						style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Commute] : {} }
-					/>
+					fade={this.state.fade}
+					profile={this.state.profile}
+					style={this.state.profile ? this.state.positionStyles[this.state.positionProfiles[this.state.profile].Commute] : {} }
+				/>
 				<div id="MainContainer" key={this.state.profile}>
 					<Fade in={this.state.welcomeFade} timeout={{ enter: 500, exit: 500 }}>
 						<span id="welcomeText" className="widget">
