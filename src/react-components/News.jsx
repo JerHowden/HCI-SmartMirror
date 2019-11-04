@@ -52,15 +52,20 @@ export default class News extends Component {
                                     <Slide index>
                                         <Card>
                                             <CardActionArea>
-                                                <CardMedia
-                                                    component="img"
-                                                    height="100"
-                                                    image={article.urlToImage}
-                                                    title={article.title}
-                                                />
+                                                {article.urlToImage ?
+                                                    <CardMedia
+                                                        component="img"
+                                                        height="100"
+                                                        image={article.urlToImage}
+                                                        title={article.title}
+                                                    />
+                                                : null}
                                                 <CardContent>
                                                     <Typography gutterBottom component="h5">
                                                         {article.title.substr(0, article.title.lastIndexOf("-")-1)}
+                                                    </Typography>
+                                                    <Typography component="div" id="News-Source">
+                                                        {article.source.name}
                                                     </Typography>
                                                 </CardContent>
                                             </CardActionArea>

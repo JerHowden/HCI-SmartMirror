@@ -57,7 +57,7 @@ export default class Commute extends Component {
                     "line-cap": "round"
                 },
                 "paint": {
-                    "line-color": "#F44",
+                    "line-color": "#FFF",
                     "line-width": 4
                 }
             });
@@ -130,28 +130,27 @@ export default class Commute extends Component {
                             })
                         }}
                     >
-                    {/*
-                        <Marker
-                            latitude={this.state.geometry.location.lat()}
-                            longitude={this.state.geometry.location.lng()}
-                            offsetLeft={-25}
-                            offsetTop={-50}
-                        >
-                            <img 
-                                src="https://img.icons8.com/plasticine/100/000000/map-pin.png" 
-                                alt="X"
-                                width="50"
-                                height="50"
-                                style={{backgroundColor: 'white'}}
-                            />
-                        </Marker>
-                    */}
+                        {this.props.profile ? 
+                            <Marker
+                                latitude={Routes[this.props.profile].routes[0].geometry.coordinates[Routes[this.props.profile].routes[0].geometry.coordinates.length-1][1]}
+                                longitude={Routes[this.props.profile].routes[0].geometry.coordinates[Routes[this.props.profile].routes[0].geometry.coordinates.length-1][0]}
+                                offsetLeft={-25}
+                                offsetTop={-43}
+                            >
+                                <img 
+                                    src="https://img.icons8.com/plasticine/100/000000/map-pin.png" 
+                                    alt="X"
+                                    width="50"
+                                    height="50"
+                                />
+                            </Marker>
+                        : null}
                     </ReactMapGL>
                     {
                         this.props.profile ? 
                             <div id="commute-info">
-                                <span id="duration">{((Routes[this.props.profile].routes[0].duration) / 60).toFixed(1)}<span> min</span></span>
-                                <span id="distance">{((Routes[this.props.profile].routes[0].distance) * 0.000621).toFixed(1)}<span> mi</span></span>
+                                <span id="duration">{((Routes[this.props.profile].routes[0].duration) / 60).toFixed(1)}<span>min</span></span>
+                                <span id="distance">{((Routes[this.props.profile].routes[0].distance) * 0.000621).toFixed(1)}<span>mi</span></span>
                             </div>
                             : null
                     }

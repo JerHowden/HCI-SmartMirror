@@ -5,17 +5,12 @@
     height: 20px;
 }
 
-#distance > span {
-    color: #8a8a8a;
-    text-shadow: none;
-    font-size: 14px;
-}
-
-#duration > span {
-    color: #8a8a8a;
+#commute-info > span > span {
+    color: #FFF;
     text-shadow: none;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 11px;
+    padding-left: 1px;
 }
 
 #duration {
