@@ -97,4 +97,4 @@ class ImageInput extends Component {
     }
 }
 
-export default withRouter(ImageInput);
+export default ImageInput;
