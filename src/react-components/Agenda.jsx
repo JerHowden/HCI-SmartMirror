@@ -6,6 +6,7 @@ import {
   CardContent,
   CardActions
 } from '@material-ui/core';
+import Draggable from 'react-draggable'; 
 
 import './Agenda.css';
 import moment from 'moment';
@@ -105,46 +106,51 @@ export default class Agenda extends Component {
     return (
       <Fade in={this.props.fade} timeout={{ enter: 1000, exit: 500 }}>
         <div id="AgendaContainer" className="widget" style={this.props.style}>
-          {this.props.profile ? (
+          
+            {this.props.profile ? (
+            <Draggable style={{
+            position: 'absolute'
+            }}>
             <Card>
-              <CardHeader
-                title={this.state.position}
-                subheader={
-                  this.state.position === 'Yesterday'
-                    ? moment()
-                        .subtract(1, 'days')
-                        .format('dddd, MMM Do')
-                    : this.state.position === 'Tomorrow'
-                    ? moment()
-                        .add(1, 'days')
-                        .format('dddd, MMM Do')
-                    : moment().format('dddd, MMM Do')
-                }
-              />
-              <CardContent>
-                {this.state[this.props.profile][this.state.position].map(
-                  item => {
-                    return (
-                      <div
-                        className={
-                          item.completed
-                            ? 'agenda-item agenda-completed'
-                            : 'agenda-item'
-                        }
-                      >
-                        <hr></hr>
-                        <span>{item.time}</span>
-                        {' | '}
-                        <span>{item.content}</span>
-                      </div>
-                    );
+                <CardHeader
+                  title={this.state.position}
+                  subheader={
+                    this.state.position === 'Yesterday'
+                      ? moment()
+                          .subtract(1, 'days')
+                          .format('dddd, MMM Do')
+                      : this.state.position === 'Tomorrow'
+                      ? moment()
+                          .add(1, 'days')
+                          .format('dddd, MMM Do')
+                      : moment().format('dddd, MMM Do')
                   }
-                )}
-              </CardContent>
-            </Card>
-          ) : (
-            <div />
-          )}
+                />
+                <CardContent>
+                  {this.state[this.props.profile][this.state.position].map(
+                    item => {
+                      return (
+                        <div
+                          className={
+                            item.completed
+                              ? 'agenda-item agenda-completed'
+                              : 'agenda-item'
+                          }
+                        >
+                          <hr></hr>
+                          <span>{item.time}</span>
+                          {' | '}
+                          <span>{item.content}</span>
+                        </div>
+                      );
+                    }
+                  )}
+                </CardContent>
+              </Card>
+            </Draggable>
+            ) : (
+              <div />
+            )}
         </div>
       </Fade>
     );
