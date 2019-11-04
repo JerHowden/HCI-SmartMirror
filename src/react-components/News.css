@@ -1,0 +1,20 @@
+#NewsContainer {
+    width: 200px;
+    /* height: 200px; */
+
+    color: white;
+}
+
+/* Card */
+#NewsContainer > div > div > div > ul > li > div > div {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#NewsContainer > div > div > div > ul > li > div > div > button > div > h5 {
+    color: white;
+    text-shadow: 1px 1px 0 black;
+}
+
+.slideInner___2mfX9 {
+    height: inherit;
+}

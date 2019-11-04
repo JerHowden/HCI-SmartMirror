@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import { Fade } from '@material-ui/core';
+
+import './Weather.css'
+
 export default class Weather extends Component {
 
     constructor(props) {
@@ -8,13 +12,7 @@ export default class Weather extends Component {
         this.weatherReport = this.weatherReport.bind(this)
 
         this.state = {
-   /*       location: {
-            city: Lubock,
-            lat: 33.5779,
-            long: -101.8552
-        }; */
-            tempF: null,
-            currentIcon: null,
+            data: {}
         }
     }
 
@@ -27,63 +25,50 @@ export default class Weather extends Component {
 
         // Dark Sky API request
         const key = 'https://api.openweathermap.org/data/2.5/weather?lat=33.5&lon=-101.85&appid=324b908d425e85e9124ac7c12b5baff9&units=imperial';
-        // Convert to .json
+
         const response = await fetch(key);
-        const weather_data = response.json();
+        const weather_data = await response.json();
 
-        // Return .json
         console.log(weather_data);
-        
-        
-        this.setState({data: weather_data})
-    }
-/*
-    let options = {
-        method: 'GET',
-        mode:   'cors'
-    }
+        console.log(weather_data.weather[0])
 
-*/
-
-// Return image icon path
-icon(){
         let currentIcon;
-        switch(this.state.data.icon){
+        switch(weather_data.weather[0].icon){
             case('01d'):
-                currentIcon = '../WeatherImages/Sun.svg';
+                currentIcon = '/WeatherImages/Sun.svg';
                 break;
             case('01n'):
                 currentIcon = '/WeaterImages/ClearN.svg';
                 break;
             case('10d'):
-                currentIcon = '../WeatherImages/Rain.svg';
+                currentIcon = '/WeatherImages/Rain.svg';
                 break;
             case('10n'):
-                currentIcon = '../WeatherImages/Rain.svg';
+                currentIcon = '/WeatherImages/Rain.svg';
                 break;
             case('09d'):
-                currentIcon = '../WeatherImages/Rain.svg';
+                currentIcon = '/WeatherImages/Rain.svg';
                 break;
             case('09n'):
-                currentIcon = '../WeatherImages/Rain.svg';
+                currentIcon = '/WeatherImages/Rain.svg';
                 break;
             case('11d'):
-                currentIcon = '../WeatherImages/Rain.svg';
+                currentIcon = '/WeatherImages/Rain.svg';
                 break;
             case('11n'):
-                currentIcon = '../WeatherImages/Rain.svg';
+                currentIcon = '/WeatherImages/Rain.svg';
                 break;
             case('13d'):
-                currentIcon = '../WeatherImages/Snow.svg';
+                currentIcon = '/WeatherImages/Snow.svg';
                 break;
             case('13n'):
-                currentIcon = '../WeatherImages/Snow.svg';
+                currentIcon = '/WeatherImages/Snow.svg';
                 break;
             case('50d'):
-                currentIcon = '../WeatherImages/Fog.svg';
+                currentIcon = '/WeatherImages/Fog.svg';
                 break;
             case('50n'):
-                currentIcon = '../WeatherImages/Fog.svg';
+                currentIcon = '/WeatherImages/Fog.svg';
                 break;
             case('03d'):
                 currentIcon = '/WeatherImages/Clouds.svg';
@@ -105,27 +90,29 @@ icon(){
                 break;
             default: 
                 currentIcon = null;
+                console.error("No Weather Icon!")
                 break;
         }
-    }
 
-    tempature(){
-        let tempF;
-        tempF = this.state.data.temp;
+        this.setState({ data: weather_data, icon: currentIcon }, () => console.log(this.state))
     }
 
     render() {
     
         return (
             
-            <div>
-                <img src={this.state.currentIcon} />  
-           
-                <div path={this.state.tempature}>
-                </div> 
-                
-                
-            </div>
+            <Fade in={this.props.fade} timeout={{ enter: 1000, exit: 500 }}>
+                <div id="WeatherContainer" className="widget" style={this.props.style}>
+                    <div>
+                        {this.state.icon ? <img src={this.state.icon} width={50} height={50} /> : <div/>}
+                        {this.state.data && this.state.data.main ? 
+                            <div id="Weather-Temperature">
+                                {Math.round(this.state.data.main.temp) + " °F"}
+                            </div>
+                        : <div/>}
+                    </div>
+                </div>
+            </Fade>
             
         )
     
