@@ -3,6 +3,7 @@ import { Fade } from '@material-ui/core'
 
 import ReactMapGL, { Marker } from 'react-map-gl';
 import Routes from './Commutes';
+import './Commute.css'
 
 export default class Commute extends Component {
 
@@ -146,6 +147,14 @@ export default class Commute extends Component {
                         </Marker>
                     */}
                     </ReactMapGL>
+                    {
+                        this.props.profile ? 
+                            <div>
+                                <span id="duration">{((Routes[this.props.profile].routes[0].duration) / 60).toFixed(1)}<span> min</span></span>
+                                <span id="distance">{((Routes[this.props.profile].routes[0].distance) * 0.000621).toFixed(1)}<span> mi</span></span>
+                            </div>
+                            : null
+                    }
                 </div>
             </Fade>
         )
