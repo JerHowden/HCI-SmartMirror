@@ -149,7 +149,7 @@ export default class Commute extends Component {
                     </ReactMapGL>
                     {
                         this.props.profile ? 
-                            <div>
+                            <div id="commute-info">
                                 <span id="duration">{((Routes[this.props.profile].routes[0].duration) / 60).toFixed(1)}<span> min</span></span>
                                 <span id="distance">{((Routes[this.props.profile].routes[0].distance) * 0.000621).toFixed(1)}<span> mi</span></span>
                             </div>

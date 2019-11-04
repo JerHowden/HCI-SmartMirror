@@ -42,8 +42,8 @@ export default class News extends Component {
                         naturalSlideWidth={100}
                         naturalSlideHeight={125}
                         totalSlides={this.state.headlines.length}
-                        interval={5000}
-                        isPlaying={false}
+                        interval={10000}
+                        isPlaying={true}
                     >
                         <Slider>
                             {this.state.headlines.map((article, index) => {
