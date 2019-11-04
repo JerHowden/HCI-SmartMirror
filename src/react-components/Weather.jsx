@@ -30,9 +30,6 @@ export default class Weather extends Component {
         const response = await fetch(key);
         const weather_data = await response.json();
 
-        console.log(weather_data);
-        console.log(weather_data.weather[0])
-
         let currentIcon;
         switch(weather_data.weather[0].icon){
             case('01d'):
@@ -95,7 +92,7 @@ export default class Weather extends Component {
                 break;
         }
 
-        this.setState({ data: weather_data, icon: currentIcon }, () => console.log(this.state))
+        this.setState({ data: weather_data, icon: currentIcon })
     }
 
     render() {

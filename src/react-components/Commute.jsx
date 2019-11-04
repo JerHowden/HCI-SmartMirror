@@ -15,27 +15,26 @@ export default class Commute extends Component {
                 latitude: 33.5779,
                 longitude: -101.8552,
                 zoom: 11
-            },
-            commutes: {
-                Jeremiah: '-101.880274,33.568672;-101.876897,33.586717',
-                Elias: '',
-                Haroon: '',
-                JP: ''
             }
         }
     }
 
     componentDidMount() {
-        console.log(Routes)
+        // console.log(Routes)
     }
 
     async componentWillReceiveProps(nextProps){
+        // console.log("NP:", nextProps, !!nextProps.profile, nextProps.profile, this.props.profile)
         if(nextProps.profile && nextProps.profile !== this.props.profile) {
+
+           // console.log("")
             const map = this.reactMap.getMap();
             if(map.getLayer('commute-route') && map.getSource('commute-source')) {
                 map.removeLayer('commute-route');
                 map.removeSource('commute-source');
             }
+
+           // console.log("Map:", map)
 
             map.addSource("commute-source", {
                 type: "geojson",
@@ -61,6 +60,8 @@ export default class Commute extends Component {
                     "line-width": 4
                 }
             });
+
+            // console.log("Map2")
 
             let viewport;
             switch(nextProps.profile) {
@@ -99,7 +100,7 @@ export default class Commute extends Component {
                 default:
                     console.error("No Profile")
             }
-            this.setState({ viewport })
+            this.setState({ viewport }, () => console.log("Viewport", viewport, this.state))
         }
     }
 

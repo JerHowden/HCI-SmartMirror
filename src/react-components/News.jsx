@@ -25,7 +25,6 @@ export default class News extends Component {
         if (nextprops.profile){
             axios.get('https://newsapi.org/v2/top-headlines?country=us&category=' + this.state[nextprops.profile] + '&apiKey=4c9b83f8f8804ae3a674087f446bb422')
                 .then(response => {
-                    console.log(response);
                     this.setState({ headlines: response.data.articles }) //may be response.data.articles
                 })
                 .catch(error => {
@@ -47,7 +46,6 @@ export default class News extends Component {
                     >
                         <Slider>
                             {this.state.headlines.map((article, index) => {
-                                console.log("Article " + index, article)
                                 return( 
                                     <Slide index>
                                         <Card>
