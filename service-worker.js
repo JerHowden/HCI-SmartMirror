@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/HCI-SmartMirror/precache-manifest.3e17911989f336e2fcfc07139758680c.js"
+  "/HCI-SmartMirror/precache-manifest.c1ffacca8d4a5e2d853c4fbf6bed87e9.js"
 );
 
 self.addEventListener('message', (event) => {
