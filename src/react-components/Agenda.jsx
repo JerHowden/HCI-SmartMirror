@@ -81,32 +81,34 @@ export default class Agenda extends Component {
 			<Fade in={this.props.fade} timeout={{ enter: 1000, exit: 500 }}>
 				<div id="AgendaContainer" className="widget" style={this.props.style}>
 					{this.props.profile ? (
-						<Card>
-							<CardHeader
-								title="Agenda"
-								subheader={moment().format("dddd")}
-							/>
-							<CardContent>
-								{this.state[this.props.profile].map(
-									item => {
-										return (
-											<div
-												className={
-													item.completed
-														? 'agenda-item agenda-completed'
-														: 'agenda-item'
-												}
-											>
-												<hr></hr>
-												<span>{item.time}</span>
-												{' | '}
-												<span>{item.content}</span>
-											</div>
-										);
-									}
-								)}
-							</CardContent>
-						</Card>
+            <Draggable>
+              <Card>
+                <CardHeader
+                  title="Agenda"
+                  subheader={moment().format("dddd")}
+                />
+                <CardContent>
+                  {this.state[this.props.profile].map(
+                    item => {
+                      return (
+                        <div
+                          className={
+                            item.completed
+                              ? 'agenda-item agenda-completed'
+                              : 'agenda-item'
+                          }
+                        >
+                          <hr></hr>
+                          <span>{item.time}</span>
+                          {' | '}
+                          <span>{item.content}</span>
+                        </div>
+                      );
+                    }
+                  )}
+                </CardContent>
+              </Card>
+            </Draggable>
 					) : (
 						<div />
 					)}
