@@ -2,7 +2,7 @@
   "name": "hci-project1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jerhowden.github.io/HCI-SmartMirror/",
+  "homepage": "https://jerhowden.github.io/HCI-SmartMirror",
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
