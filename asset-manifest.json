@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/HCI-SmartMirror/static/css/main.453f8825.chunk.css",
-    "main.js": "/HCI-SmartMirror/static/js/main.46217ee7.chunk.js",
-    "main.js.map": "/HCI-SmartMirror/static/js/main.46217ee7.chunk.js.map",
+    "main.css": "/HCI-SmartMirror/static/css/main.d262f085.chunk.css",
+    "main.js": "/HCI-SmartMirror/static/js/main.b62516f2.chunk.js",
+    "main.js.map": "/HCI-SmartMirror/static/js/main.b62516f2.chunk.js.map",
     "runtime-main.js": "/HCI-SmartMirror/static/js/runtime-main.34b59305.js",
     "runtime-main.js.map": "/HCI-SmartMirror/static/js/runtime-main.34b59305.js.map",
     "static/css/2.1fd2b905.chunk.css": "/HCI-SmartMirror/static/css/2.1fd2b905.chunk.css",
-    "static/js/2.ca91a95e.chunk.js": "/HCI-SmartMirror/static/js/2.ca91a95e.chunk.js",
-    "static/js/2.ca91a95e.chunk.js.map": "/HCI-SmartMirror/static/js/2.ca91a95e.chunk.js.map",
+    "static/js/2.7da6901e.chunk.js": "/HCI-SmartMirror/static/js/2.7da6901e.chunk.js",
+    "static/js/2.7da6901e.chunk.js.map": "/HCI-SmartMirror/static/js/2.7da6901e.chunk.js.map",
     "index.html": "/HCI-SmartMirror/index.html",
-    "precache-manifest.c1ffacca8d4a5e2d853c4fbf6bed87e9.js": "/HCI-SmartMirror/precache-manifest.c1ffacca8d4a5e2d853c4fbf6bed87e9.js",
+    "precache-manifest.970b01de2c8e072c0c08e319520fbb31.js": "/HCI-SmartMirror/precache-manifest.970b01de2c8e072c0c08e319520fbb31.js",
     "service-worker.js": "/HCI-SmartMirror/service-worker.js",
     "static/css/2.1fd2b905.chunk.css.map": "/HCI-SmartMirror/static/css/2.1fd2b905.chunk.css.map",
-    "static/css/main.453f8825.chunk.css.map": "/HCI-SmartMirror/static/css/main.453f8825.chunk.css.map",
-    "static/media/test.JPG": "/HCI-SmartMirror/static/media/test.4e8283ad.JPG"
+    "static/css/main.d262f085.chunk.css.map": "/HCI-SmartMirror/static/css/main.d262f085.chunk.css.map"
   }
 }
