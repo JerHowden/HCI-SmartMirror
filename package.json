@@ -2,6 +2,7 @@
   "name": "hci-project1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jerhowden.github.io/HCI-SmartMirror/",
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
@@ -26,6 +27,8 @@
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
