@@ -1,7 +1,9 @@
 
 ## HCI Smart Mirror Project
 
+11/3/2019
 Project By: James Fallon, Haroon Saeed, Elias Moreno, and Jeremiah Howden
+
 
 ## Weather
 OpenWeatherMap API was used with our current address denoted within the API request. The feature displays an icon depicting the current weather conditions of Lubbock, TX and a current tempature of the area.
