@@ -104,7 +104,7 @@ export default class Weather extends Component {
                     {this.state.icon ? <img src={this.state.icon} width={50} height={50} /> : <div/>}
                     {this.state.data && this.state.data.main ? 
                         <div>
-                            {this.state.data.main.temp + " °F"}
+                            {Math.round(this.state.data.main.temp) + " °F"}
                         </div>
                     : <div/>}
                 </div>
