@@ -1,7 +1,7 @@
-import React from 'react'
-import './App.css'
+import React from 'react';
+import './App.css';
 
-import Main from './react-components/Main'
+import Main from './react-components/Main';
 import { Route, Router } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
@@ -15,22 +15,50 @@ import USNews from './react-components/USNews';
 import Weather from './react-components/Weather';
 
 function App() {
-	return (
-		<div className="App">
-			<Router history={createHistory()}>
-				<div className="route">
-					<Route exact path="/" component={props => <Main {...props} />} /> 
-					<Route exact path="/photo" component={props => <ImageInput {...props} />} />
-					<Route exact path="/news" component={props => <StoriesContainer {...props} />} />
-					<Route exact path="/carousel" component={props => <Carousel {...props} />} />
-					<Route exact path="/twitter" component={props => <Twitter {...props} />} />
-					<Route exact path="/weather" component={props => <Weather {...props} />} />
-					<Route exact path="/commute" component={props => <Commute {...props} />} />
-					<Route exact path="/usnews" component={props => <USNews {...props} />} />
-				</div>
-			</Router> 
-		</div>
-	);
+  return (
+    <div className="App">
+      <Router history={createHistory()}>
+        <div className="route">
+          <Route exact path="/" component={props => <Main {...props} />} />
+          <Route
+            exact
+            path="/photo"
+            component={props => <ImageInput {...props} />}
+          />
+          <Route
+            exact
+            path="/news"
+            component={props => <StoriesContainer {...props} />}
+          />
+          <Route
+            exact
+            path="/carousel"
+            component={props => <Carousel {...props} />}
+          />
+          <Route
+            exact
+            path="/twitter"
+            component={props => <Twitter {...props} />}
+          />
+          <Route
+            exact
+            path="/weather"
+            component={props => <Weather {...props} />}
+          />
+          <Route
+            exact
+            path="/commute"
+            component={props => <Commute {...props} />}
+          />
+          <Route
+            exact
+            path="/usnews"
+            component={props => <USNews {...props} />}
+          />
+        </div>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
