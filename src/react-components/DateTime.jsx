@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import moment from 'moment';
+import Draggable from 'react-draggable';
 
 import { Fade } from '@material-ui/core'
 
@@ -33,9 +34,11 @@ export default class DateTime extends Component {
     render() {
         return(
             <Fade in={this.props.fade} timeout={{ enter: 1000, exit: 500 }}>
-                {
-                    this.props.style && this.props.style.bottom === 0 ?
+                {   this.props.style && this.props.style.bottom === 0 ?
                         <span id="DateTimeContainer" className="widget" style={this.props.style}>
+                            <Draggable style={{
+                            position: 'absolute'
+                            }}>
                             <div>
                                 <div id="TimeFormatted">
                                     {
@@ -49,6 +52,7 @@ export default class DateTime extends Component {
                                     {this.state.moment.format("dddd, MMMM Do")}
                                 </div>
                             </div>
+                            </Draggable>
                         </span>
                     :
                         <span id="DateTimeContainer" className="widget" style={this.props.style}>
